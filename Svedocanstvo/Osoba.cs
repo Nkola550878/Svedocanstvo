@@ -26,11 +26,6 @@ namespace Svedocanstvo
 
         private void Osoba_Load(object sender, EventArgs e)
         {
-            PopuniText();
-        }
-
-        void PopuniText()
-        {
 
             string connectionString = "Server=DESKTOP-OGGEBNA\\SQLEXPRESS; database=ednevnik; integrated Security=SSPI;";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -38,6 +33,12 @@ namespace Svedocanstvo
             SqlDataAdapter adapter = new SqlDataAdapter("select * from osoba", connection);
 
             adapter.Fill(podaci);
+            PopuniText();
+        }
+
+        void PopuniText()
+        {
+
 
             id.Text = ((int)podaci.Rows[brojReda][0]).ToString();
             ime.Text = (string)podaci.Rows[brojReda][1];
@@ -47,6 +48,28 @@ namespace Svedocanstvo
             email.Text = (string)podaci.Rows[brojReda][5];
             password.Text = (string)podaci.Rows[brojReda][6];
             uloga.Text = ((int)podaci.Rows[brojReda][7]).ToString();
+
+            if(brojReda == 0)
+            {
+                button2.Enabled = false;
+                button1.Enabled = false;
+            }
+            else
+            {
+                button2.Enabled = true;
+                button1.Enabled = true;
+            }
+
+            if(brojReda == podaci.Rows.Count - 1)
+            {
+                btnSledeci.Enabled = false;
+                btnPoslednji.Enabled = false;
+            }
+            else
+            {
+                btnSledeci.Enabled = true;
+                btnPoslednji.Enabled = true;
+            }
         }
 
         private void btnSledeci_Click(object sender, EventArgs e)
