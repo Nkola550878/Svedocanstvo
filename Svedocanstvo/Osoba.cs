@@ -98,7 +98,7 @@ namespace Svedocanstvo
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            
+            string naredba = $"insert into osoba(ime, prezime, adresa, jmbg, email, password, uloga) values ('{ime.Text}', '{prezime.Text}', '{adresa.Text}', '{jmbg.Text}', '{email.Text}', '{password.Text}')";
         }
     }
 }
