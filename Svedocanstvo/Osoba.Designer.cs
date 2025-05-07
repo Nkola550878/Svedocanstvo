@@ -218,6 +218,7 @@
             this.btnUnesi.TabIndex = 19;
             this.btnUnesi.Text = "unesi";
             this.btnUnesi.UseVisualStyleBackColor = true;
+            this.btnUnesi.Click += new System.EventHandler(this.btnUnesi_Click);
             // 
             // btnObrisi
             // 

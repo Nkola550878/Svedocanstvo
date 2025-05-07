@@ -95,5 +95,10 @@ namespace Svedocanstvo
             brojReda = 0;
             PopuniText();
         }
+
+        private void btnUnesi_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
